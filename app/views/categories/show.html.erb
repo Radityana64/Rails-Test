@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<h2>Products in this Category</h2>  <!-- Add this section -->
+<ul>
+  <% @category.products.each do |product| %>
+    <li><%= link_to product.name, product %> (Price: <%= product.price %>)</li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Edit this category", edit_category_path(@category) %> |
+  <%= link_to "Back to categories", categories_path %>
+
+  <%= button_to "Destroy this category", @category, method: :delete %>
+</div>
